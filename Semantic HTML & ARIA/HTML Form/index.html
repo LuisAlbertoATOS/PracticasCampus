@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms</title>
+</head>
+<body>
+    <h1>HTML Forms</h1>
+
+    <form>
+        <label for="input-username">Enter username:</label>
+        <input type="text" id="input-username" name="input-username" placeholder="Username" required>
+
+        <br><br>
+        <label for="input-email">Enter email:</label>
+        <input type="email" id="input-email" name="input-email" placeholder="Your email" required>
+
+        <br><br>
+        <label for="input-password">Enter password:</label>
+        <input type="password" id="input-password" name="input-password" placeholder="Your password" required>
+
+        <br><br>
+        <p>Select your age:</p>
+        <input type="radio" name="age" id="age-op1" value="0-25">
+        <label for="age-op1"> 0-25</label>
+        <input type="radio" name="age" id="age-op2" value="26-50">
+        <label for="age-op2"> 26-50</label>
+        <input type="radio" name="age" id="age-op3" value="51+">
+        <label for="age-op3"> 50+</label>
+
+        <br><br>
+        <label for="question">Security question:</label>
+        <select name="question" id="question">
+            <option value="q1">Favorite color?</option>
+            <option value="q2">Name of your first pet?</option>
+            <option value="q3">Best friend from childhood?</option>
+        </select>
+
+        <br><br>
+        <label for="answer">Security question answer: </label>
+        <input type="text" name="answer" id="answer">
+
+        <br><br>
+        <label for="bio">Biography: </label><br>
+        <textarea name="bio" id="bio" cols="30" rows="5" placeholder="About you...">Enter your bio...</textarea>
+    
+        <br><br>
+        <input type="submit" value="Submit the form" name="form-submit" id="form-submit">
+    </form>
+</body>
+</html>
