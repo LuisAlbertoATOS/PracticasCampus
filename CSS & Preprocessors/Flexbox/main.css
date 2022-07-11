@@ -1,0 +1,54 @@
+@media (min-width:468px) {
+    .container-1{
+        display: flex;
+        align-self: center;
+    }
+    
+    .container-2{
+        display: flex;
+        justify-content:space-around;
+    }
+}
+
+.container-1{
+    /* display: flex; */
+    flex-wrap: wrap;
+    /* align-items: flex-start; */
+    align-self: center;
+    /* flex-direction: column; */
+}
+
+.container-2{
+    display: flex;
+    justify-content:space-around;
+}
+
+.container-1 div, .container-2 div{
+    border: 1px #ccc solid;
+    padding: 10px;
+}
+
+.box-1{
+    flex: 2;
+    order: 2;
+}
+
+.box-2{
+    flex: 1;
+    order: 1;
+}
+
+.box-3{
+    flex: 1;
+    order: 3;
+}
+
+.container2-box{
+    /* the flexbox way to use width */
+    flex-basis: 27%;
+}
+
+/* 
+flex:1 gives a width against other elements in .container-1
+order:1 reorders elements 
+*/
