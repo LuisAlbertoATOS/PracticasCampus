@@ -1,0 +1,20 @@
+.cuadrado{
+    width: 200px;
+    height: 200px;
+    background-color: #aaa;
+    margin-bottom: 20px;
+
+
+    display: inline-block;
+}
+
+p {
+    /* inline-block los pone inline pero manteniendo las propiedades de height y width del block */
+    display: inline-block;
+}
+
+a {
+    display: block;
+}
+
+/* display block viene por default, aka ocupan todo el ancho y se stackean */
