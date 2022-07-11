@@ -1,0 +1,82 @@
+body{
+    margin: 20px;
+}
+
+.item{
+    padding: 10px;
+    border: 1px black solid;
+    background-color: lightcoral;
+}
+
+.container{
+    display: grid;
+    gap: 10px;
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 100px) 50px;
+}
+
+.item-1{
+    grid-row: 1 / 3;
+}
+
+.item-6{
+    grid-column: 1 / -1;
+}
+
+.container :nth-child(5){
+    grid-column: auto / span 3;
+}
+
+.area-container{
+    padding-top: 10px;
+    display: grid;
+    gap: 10px;
+
+    grid-template-areas:
+    "hd hd hd sb"
+    "a a a sb"
+    "cr cr cr cr";
+}
+
+.area-item{
+    padding: 10px;
+    border: 1px black solid;
+    background-color: rgb(10, 112, 112);
+    color: white;
+}
+
+.item-7{
+    grid-area: hd;
+}
+
+.item-11{
+    grid-area: sb;
+}
+
+.item-12{
+    grid-area: cr;
+}
+
+/* use align properties to center in block axis
+use justify to center in inline axis */
+
+.flex-container{
+    padding-top: 10px;
+    display: flex;
+    gap: 10px;
+    block-size: 50px;
+}
+
+.flex-item{
+    padding: 10px;
+    border: 1px black solid;
+    background-color: rgb(139, 128, 44);
+    color: white;
+    flex: 1;
+}
+
+.item-f {
+    margin-left: auto;
+    flex: 5;
+}
