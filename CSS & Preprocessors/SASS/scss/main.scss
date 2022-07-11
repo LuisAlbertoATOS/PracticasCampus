@@ -1,0 +1,63 @@
+@import 'resets';
+@import 'variables';
+// no need to write underscore or extension
+
+@function weight($weight-name){
+    @return map-get($font-weights, $weight-name);
+}
+
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin theme ($lightTheme: true) {
+    @if $lightTheme {
+        background-color: lighten($bg-color, 100%);
+        color: darken($text-color, 100%);
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content
+    }    
+}
+
+body {
+    background-color: $bg-color;
+    color: $text-color;
+} 
+
+.main {
+    
+    @include flexCenter(row);
+    width: 80%;
+    margin: 0 auto;
+
+    #{&}__paragraph1{
+        font-weight: weight(bold);
+
+        &:hover {
+            color: pink;
+        }
+    }
+
+    #{&}__paragraph2{
+        @extend .main__paragraph1;
+
+        &:hover{
+            color: $accent-color;
+        }
+    }
+
+    @include mobile {
+        flex-direction: column;
+    }
+}
+ 
+.light {
+    @include theme($lightTheme: false);
+}
