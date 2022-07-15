@@ -1,0 +1,253 @@
+<script>
+    console.log('Hi');
+
+    /* 
+        VAR   can change but its always global
+        LET   can change, only for usage inside a scope
+        CONST doesn't change
+    */
+
+    const pi = 3.14;
+    console.log(pi)
+
+    // STRINGS
+    let myStr = "This is a text with \"inside quotation marks\"" + " and a concatenation";
+    console.log(myStr);
+    let myStrLength = myStr.length;
+    let firstLetter = myStr[0];
+
+    // ARRAYS
+    let scores = [90, 100, 88, 85, 95];
+    scores[2] = 80;
+    scores.pop(); // removes and returns last element 
+    scores.push(75); // adds to end of array
+    scores.shift(); // removes and returns first element
+    scores.unshift(98); // adds to start of array
+    console.log(JSON.stringify(scores));
+
+    let superArray = [[0,0,0],[0,0],0,[[0,1,0],0]];
+    console.log(superArray[3][0][1]); // should be 1
+
+    // FUNCTIONS
+    function myFuction(message){
+        console.log(typeof message != "undefined" ? message : "Message undefined :c");
+    }
+    myFuction("I'm a parameter");
+    let a;
+    myFuction(a); // should be undefined
+
+    /*
+        3 === 3 is true
+        3 === '3' is false
+
+        3 == '3' is true
+
+        3 != 4 is true
+        3 !== '3' is true
+    */
+
+    // SWITCH CASE
+    let val = 5, answer="";
+    switch(val){
+        case 1: 
+            answer="alpha";
+            break;
+        case 2: 
+            answer="beta";
+            break;
+        case 3: 
+            answer="gamma";
+            break;
+        case 4: 
+        case 5: // this allows different values to access "delta"
+        case 6:
+            answer="delta";
+            break;
+        default:
+            answer="hello there";
+            break;
+    }
+    console.log(answer);
+
+    // OBJECTS
+    let myDog = {
+        "name": "Snoopy",
+        "age": 5,
+        "color": "White with black",
+        "friends": ["Carol", "Luisito", "Nala", "Charlie"]
+    };
+    console.log(myDog.name + " plays with " + myDog.friends[0]);
+    // or... myDog["name"]
+
+    myDog.age += 5; // modify a property value
+    console.log(myDog.age);
+
+    myDog.favToy = "Ball"; // add a property
+    console.log(myDog.favToy);
+
+    delete myDog.favToy; // delete a property
+    console.log(myDog.favToy);
+
+    // check if obj has property
+    console.log(myDog.hasOwnProperty("color") ? "There's a color" : "undefined :c");
+
+    let albums = [
+        {
+            "name": "AJR",
+            "favAlbum": "OK Orchestra",
+            "favSongs": [ 
+                "Way less sad", "Karma", "Burn the house down"
+            ]
+        },
+        {
+            "name": "Twenty One Pilots",
+            "favAlbum": "Scaled And Icy",
+            "favSongs": [
+                "Good Day", "Never Take It", "House of gold"
+            ]
+        }
+    ]
+
+    let albumsCopy = JSON.parse(JSON.stringify(albums)); // copy of an object
+
+    console.log(albums[0].favSongs[1]); // should log "Karma"
+    
+    albums[1].favSongs.push("Level of concern");
+    console.log(albums[1].favSongs[albums[1].favSongs.length-1]); // should log "Level of concern"
+
+    // LOOPS
+    let i=0, array=[];
+
+    while(i < 5){ // while loop
+        array.push(i);
+        i++;
+    }
+
+    for (i = 0; i < 5; i++) { // for loop
+        array.push(5+i);
+    }
+
+    do { //do while loop
+        array.push(array.length);
+    } while(array.length < 15);
+    
+    console.log(JSON.stringify(array));
+
+    // RANDOMS
+    let randoms = [];
+
+    randoms.push(Math.random()); // returns random decimal between 0 and 1
+    randoms.push(Math.floor(Math.random()*20)); // returns random int between 0 and 19
+    let max=100, min=50;
+    randoms.push(Math.floor(Math.random() * (max - min + 1)) + min); // random int in range
+
+    console.log(JSON.stringify(randoms));
+
+    // CONVERT TYPES
+    let intAux = parseInt("550"); // string to int
+    intAux = parseInt("10011", 2) // binary to int
+
+    // ternary operator
+    // a = condition ? valueTrue : valueFalse;
+
+    // enables strict mode, add this at top of file to check for codings mistakes
+    "use strict";
+
+    // consts arrays can be changed by accessing index
+    // const objects properties can be modified until they .freeze
+    const obj = {
+        PI: 3.14
+    }
+
+    obj.PI=99;
+    console.log(obj.PI); // throws 99
+    Object.freeze(obj);
+
+    obj.PI=200;
+    console.log(obj.PI); // still throws 99
+
+    // ANONYMOUS FUNCTION or ARROW FUNCTION
+    let magic = (num) => num+100;
+    console.log(magic(10));
+
+    array = [1,-1,12,8, -100, 10];
+    let squareList = (arr) => {
+        return arr.filter(num => Number.isInteger(num) && num > 0).map(x => x*x);
+    }
+    console.log(JSON.stringify(squareList(array)));
+
+    const sum = (function() {
+        return function sum(...args) { // this will receive multiple params and convert it to an array called args
+            return args.reduce((a, b) => a + b, 0);
+        }
+    })();
+    console.log(sum(1,2,3));
+
+    // arr2 = arr1 doesnt generate a copy, the right way to do it is:
+    // arr2 = [...arr1];
+
+    // DESTRUCTURING
+    let obj1={x:36, y:14, z:99};
+    const {x:first, y:second, z:third} = obj1; // first = x, second = y...
+
+    let [one,two,three] = [1,2,3]; // one = 1, two = 2...
+    [one,two] = [two, one]; // one = 2, two = 1
+    console.log(one);
+
+    arr=[1,2,3,4,5];
+    [ , ,...arr2] = arr; // remove first two elements
+    console.log(JSON.stringify(arr2));
+
+    let obj2 = {
+        a:1,
+        b:2,
+        c:3
+    };
+
+    function half({a, c}){ // receives only som properties of my object
+        return (a+c)/2.0;
+    }
+    console.log(half(obj2));
+
+    // STRINGS WITH TEMPLATE LITERALS
+    name = 'Luisito';
+    let stringExample = `Hello, my name is ${name}`;
+    console.log(stringExample);
+
+    let createPerson = (name, age, gender) => ({ name, age,gender});
+    console.log(createPerson("Luisito", 22, "Male"));
+
+    let objWithFunc = {
+        age: 22,
+        setAge(newage) {
+            this.age = newage;
+        }
+    }
+    objWithFunc.setAge(23);
+
+    // CONSTRUCTORS, GETTERS AND SETTERS
+    function makeClass(){
+        class Vegetable {
+            constructor(name){
+                this.name = name;
+            }
+
+            get realName(){
+                return this.name;
+            }
+
+            set realName(newName){
+                this.name = newName;
+            }
+        }
+        return Vegetable;
+    }
+
+    let Vegetable = makeClass();
+    let carrot = new Vegetable('carrot');
+    console.log(carrot.name);
+
+    carrot.realName = 'blueberries';
+    console.log(carrot.realName);
+
+</script>
