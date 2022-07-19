@@ -1,0 +1,21 @@
+COMMANDS - Node Package Manager (NPM)
+
+TO INSTALL PACKAGES
+    > npm i name-of-package
+    > npm install ...
+
+TO INSTALL PACKAGES GLOBALLY
+    > npm i name-of-package -g  
+
+TO ACCESS GLOBAL PACKAGES INSTALLED
+    > npm root -g
+
+TO GET LATEST VERSION OF NPM PACKAGE
+    > npm i -g npm
+
+TO ACCESS VERSION OF PACKAGE
+    > name-of-package -v
+
+TO REMOVE PACKAGES
+    > npm remove name-of-package
+    > npm uninstall ...
