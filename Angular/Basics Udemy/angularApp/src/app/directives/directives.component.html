@@ -1,0 +1,18 @@
+<p>directives works!</p>
+
+<!-- <button (click)="showParagraph = !showParagraph">
+    display details
+</button> -->
+<button (click)="onToggleParagraph()">
+    display details
+</button>
+
+<p *ngIf="showParagraph">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, sint.
+</p>
+<div 
+    *ngFor="let logItem of log; let i = index"
+    [ngStyle]="{backgroundColor: i >= 5 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text': i >= 5}">
+    {{ logItem }}
+</div>

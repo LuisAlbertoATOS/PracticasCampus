@@ -1,0 +1,47 @@
+<label for="">Server name</label>
+<!-- 
+    > BINDING
+    Creates a live connection between a part of the UI 
+    (a DOM element, directive, or component) and the model 
+    (the component instance to which the template belongs)
+
+    Property binding in disabled button 
+    Event binding on click button
+    Two way binding in line ngModel input
+
+    > DIRECTIVES
+    Instructions for the DOM
+
+    ngIf displays (or not) an element depending on a boolean condition
+    <tag *ngIf="aBooleanCondition">...</tag>
+
+    ngStyle: dinamically update the styles
+    ngClass: dinamically asign classes to elements
+
+    <p [ngStyle]="{'background-color':getColor()}"
+        [ngClass]="{online: serverStatus === 'Online'}">
+        The server component with ID {{ serverId }} is {{ getServerStatus() }}
+    </p>
+
+-->
+
+<input 
+    type="text" 
+    class="form-control" 
+    [(ngModel)]="serverName"> 
+<p>{{serverName}}</p>
+
+<button 
+    class="btn btn-primary" 
+    [disabled] = "!allowNewServer" 
+    (click)="onCreateServer()">Add Server</button>
+
+<p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }}</p>
+<ng-template #noServer>
+    <p>No server was created :c</p>
+</ng-template>
+
+<app-server *ngFor="let server of servers"></app-server>
+<app-server></app-server>
+
+<app-copyright></app-copyright>
